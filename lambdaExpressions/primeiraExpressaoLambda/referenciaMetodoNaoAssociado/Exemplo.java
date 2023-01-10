@@ -12,8 +12,7 @@ public class Exemplo {
 
         String name = getName.apply(anna);
 
-        
-
+        System.out.println(name);
 
     }
 }

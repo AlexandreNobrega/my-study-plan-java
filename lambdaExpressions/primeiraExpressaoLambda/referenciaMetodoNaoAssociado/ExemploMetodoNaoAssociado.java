@@ -19,16 +19,16 @@ public class ExemploMetodoNaoAssociado {
 
         System.out.println(resultReference);
 
-        User user = new User();
+        //User user = new User();
 
-        user.setName("Alexandre Nobrega");
+        //user.setName("Alexandre Nobrega");
 
         //Exemplo com método get
         Function<User, String> getName = u -> u.getName();
 
-        String userResult = getName.apply(user);
+        //String userResult = getName.apply(user);
 
-        System.out.println(userResult);
+        //System.out.println(userResult);
 
         //Exemplo com método de referência com get
         //Function<String, Integer> toLengthReference2 = User::getName;
