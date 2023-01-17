@@ -20,19 +20,24 @@ public class OrdenaStrings {
         Comparator<String> comparador = new ComparadorDeStringPorTamanho();
         //Collections.sort(palavras, comparador);
 
-        palavras.sort(comparador); //comparando pelo quantidade de strings do menor para o maior, através do "comparador"
+        //palavras.sort(comparador); //comparando pelo quantidade de strings do menor para o maior, através do "comparador"
+
+        //Lambda para simplificar o exemplo acima de comparador
+        palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 
         //System.out.println(palavras);
 
         Consumer<String> consumidor = new ConsumidorDeString();
         palavras.forEach(consumidor);
 
+        //Lambda para simplificar o exemplo acima de consumidor
+        palavras.forEach(s -> System.out.println("Com lambda: " + s));
     }
 }
 
 class ComparadorDeStringPorTamanho implements Comparator<String> {
 
-    //Método utilizado para comparar pelo quantidade de strings do menor para o maior
+    //Método utilizado para comparar pela quantidade de strings do menor para o maior
     public int compare(String s1, String s2) {
         if(s1.length() < s2.length())
             return -1;
