@@ -1,15 +1,19 @@
 package capturandoETratandoExcecoes;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 public class ListOfNumbers {
 
     private List<Integer> list;
-    private static final int SIZE = -50;
+
+    // Create a Logger
+    Logger logger = Logger.getLogger(ListOfNumbers.class.getName());
+    private static final int SIZE = 10;
 
     public ListOfNumbers() {
         list = new ArrayList<>(SIZE);
@@ -18,7 +22,7 @@ public class ListOfNumbers {
         }
     }
 
-    public void writeList() {
+    public void writeList() throws IOException, IndexOutOfBoundsException {
 
         PrintWriter out = null;
 
@@ -28,13 +32,25 @@ public class ListOfNumbers {
             for (int i = 0; i < SIZE; i++) {
                 out.println("Value at: " + i + " = " + list.get(i));
             }
-        } catch (IndexOutOfBoundsException e) {
-            System.err.println("IndexOutOfBoundsException: " + e.getMessage());
-        } catch (IOException e) {
-            System.err.println("Caught IOException: " + e.getMessage());
+
+        } catch (IOException | IndexOutOfBoundsException e) {
+            LogRecord record = new LogRecord(Level.INFO, "ESSA É UMA MENSAGEM DE LOG CONTENDO ALGUMAS INFORMAÇÕES SOBRE A EXCEÇÃO");
+            logger.log(record);
+            throw e;
+        } finally {
+            System.out.println("Independente do que aconteça o bloco finally será executado");
+            if (out != null) {
+                System.out.println("Closing PrintWriter");
+                out.close();
+            } else {
+                System.out.println("PrintWriter not open");
+            }
         }
+    }
 
-        out.close();
-
+    static String readFirstLineFromFile(String path) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            return br.readLine();
+        }
     }
 }
