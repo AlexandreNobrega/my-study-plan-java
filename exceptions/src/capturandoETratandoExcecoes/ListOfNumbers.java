@@ -23,6 +23,7 @@ public class ListOfNumbers {
         }
     }
 
+
     public void writeList() throws IOException, IndexOutOfBoundsException {
 
         PrintWriter out = null;
@@ -55,7 +56,6 @@ public class ListOfNumbers {
         }
     }
 
-    //ESTÁ NA MINHA MÁQUINA LOCAL
     public static void writeToFileZipFileContents(String zipFileName, String outputFileName) throws java.io.IOException {
 
         java.nio.charset.Charset charset = StandardCharsets.US_ASCII;
@@ -82,15 +82,12 @@ public class ListOfNumbers {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
+    //throws IOException, IndexOutOfBoundsException, informa que o método writeList pode lançar uma destas exceções
+    public void writeList2() throws IOException, IndexOutOfBoundsException {
+        PrintWriter out = new PrintWriter(new FileWriter("OutFile.txt"));
+        for (int i = 0; i < SIZE; i++) {
+            out.println("Value at: " + i + " = " + list.get(i));
+        }
+        out.close();
+    }
 }
