@@ -50,6 +50,31 @@ public class ListOfNumbers {
         }
     }
 
+    public void writeListStackTrace() throws IOException, IndexOutOfBoundsException {
+
+        PrintWriter out = null;
+
+        try {
+            out = new PrintWriter(new FileWriter("/home/alexandre/Área de Trabalho/OutFile.txt"));
+
+            for (int i = 0; i < SIZE; i++) {
+                out.println("Value at: " + i + " = " + list.get(i));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            e.printStackTrace(System.out);
+        } finally {
+            System.out.println("Independente do que aconteça o bloco finally será executado");
+            if (out != null) {
+                System.out.println("Closing PrintWriter");
+                out.close();
+            } else {
+                System.out.println("PrintWriter not open");
+            }
+        }
+    }
+
     static String readFirstLineFromFile(String path) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             return br.readLine();

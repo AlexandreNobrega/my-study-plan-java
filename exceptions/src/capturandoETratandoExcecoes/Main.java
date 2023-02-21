@@ -8,12 +8,12 @@ public class Main {
 
     public static void main(String[] args) throws IOException, IndexOutOfBoundsException {
 
-/*
+
        ListOfNumbers listOfNumbers = new ListOfNumbers();
 
-        listOfNumbers.writeList();
+        listOfNumbers.writeListStackTrace();
 
-        String firstLine = listOfNumbers.readFirstLineFromFile("/home/alexandre/Área de Trabalho/OutFile.txt");
+        /*String firstLine = listOfNumbers.readFirstLineFromFile("/home/alexandre/Área de Trabalho/OutFile.txt");
 
         System.out.println(firstLine);
 
@@ -33,13 +33,13 @@ public class Main {
         String result = throwStatement.returnName(name);
 
         System.out.println(result);
- */
+
 
         ThrowStatement throwStatement = new ThrowStatement();
 
         String name = null;
 
-        throwStatement.fileLog(name);
+        throwStatement.fileLog(name);*/
 
 
     }
