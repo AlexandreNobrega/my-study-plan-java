@@ -1,5 +1,6 @@
 package alura;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class TesteTrataException {
@@ -26,5 +27,6 @@ public class TesteTrataException {
             System.out.println("Peguei a exception verificada");
         }
             System.out.println("Terminei");
+
     }
 }
