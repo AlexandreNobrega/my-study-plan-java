@@ -2,14 +2,6 @@ package alura;
 
 public class TestaTrataException3 {
 
-/*    public static void metodo1() {
-        try {
-            new ContaDoBem().saca(500);
-        } catch (SaldoInsuficienteException e) {
-            System.out.println("tratei no metodo 1");
-        }
-    }*/
-
     public static void metodo1() throws SaldoInsuficienteException {
         new ContaDoBem().saca(500);
     }
