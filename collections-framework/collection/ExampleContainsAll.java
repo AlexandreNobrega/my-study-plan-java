@@ -14,12 +14,12 @@ public class ExampleContainsAll {
         strings.add("three");
 
         Collection<String> first = new ArrayList<>();
-        strings.add("one");
-        strings.add("two");
+        first.add("one");
+        first.add("two");
 
         Collection<String> second = new ArrayList<>();
-        strings.add("one");
-        strings.add("four");
+        second.add("one");
+        second.add("four");
 
         System.out.println("Is first contained in strings? " + strings.containsAll(first));
         System.out.println("Is second contained in strings? " + strings.containsAll(second));
