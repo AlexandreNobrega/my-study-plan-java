@@ -23,5 +23,7 @@ public class ExampleCopyOf {
 
         set.forEach(System.out::println);
 
+        list.add("four"); //exception UnsupportedOperationException
+
     }
 }
